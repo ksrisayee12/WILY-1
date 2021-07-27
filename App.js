@@ -1,13 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation'
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import { StyleSheet, Text, View } from 'react-native';
+import Search from './Screens/Search'
+import BookTransaction from './Screens/BookTransaction'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // <View style={styles.container}>
+      <AppContainer/>
+    // </View>
   );
 }
 
@@ -19,3 +22,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+var AppNavigator = createSwitchNavigator({
+  Search: Search,
+  BookTransaction: BookTransaction,
+});
+
+const TabNavigator = createBottomTabNavigator({
+Transaction: { screen: BookTransaction },
+Search: { screen: Search }
+});
+
+const AppContainer = createAppContainer(TabNavigator);
