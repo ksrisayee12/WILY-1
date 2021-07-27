@@ -8,9 +8,7 @@ import BookTransaction from './Screens/BookTransaction'
 
 export default function App() {
   return (
-    // <View style={styles.container}>
-      <AppContainer/>
-    // </View>
+    <AppContainer/>
   );
 }
 
